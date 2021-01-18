@@ -46,9 +46,20 @@ RUN pip install  torch-scatter -f https://pytorch-geometric.com/whl/torch-1.7.0+
 	pip install  torch-cluster -f https://pytorch-geometric.com/whl/torch-1.7.0+cu110.html \
 	pip install  torch-spline-conv -f https://pytorch-geometric.com/whl/torch-1.7.0+cu110.html \
 	pip install  torch-geometric
+	
+RUN pip install fastai \
+	pip install pytorch-lightning 
 
-RUN pip install jupyter \
+
+RUN pip install scikit-image \
+	pip install jupyter \
 	pip install jupyterlab
+
+RUN conda install -c conda-forge nodejs
+RUN conda install -c conda-forge ipycytoscape
+RUN	jupyter labextension install @jupyter-widgets/jupyterlab-manager
+RUN jupyter lab build
+
 	
 # Set the default command to python3
 EXPOSE 8888
